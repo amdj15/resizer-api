@@ -1,25 +1,40 @@
 class V1::ImagesController < V1::BaseController
   def index
-    @images = @gadget.images
+    @images = @gadget.images.limit(params[:limit] || Image::DEFAULT_LIMIT).offset(params[:offset])
   end
 
   def create
-    uploader = ImageUploader.new
-    uploader.store! params[:file]
+    image_size = ImageSize.new(image_size_params)
 
-    image = Image.create!(filename: uploader.filename, gadget_id: @gadget.id)
-    create_size(image)
+    if image_size.valid?
+      uploader = ImageUploader.new
+      uploader.store! params[:file]
+
+      create_size Image.create!(filename: uploader.filename, gadget_id: @gadget.id), image_size
+    else
+      api_error errors: image_size.errors
+    end
   end
 
   def resize
-    image = Image.find(params[:id])
-    create_size(image)
+    return api_error errors: {error: "Image doesnt exists"} unless image = Image.find_by_id_and_gadget_id(params[:id], @gadget.id)
 
-    render :create
+    image_size = ImageSize.new(image_size_params)
+
+    if image_size.valid?
+      create_size image, image_size
+      render :create
+    else
+      api_error errors: image_size.errors
+    end
   end
 
   private
-    def create_size(image)
-      @image_size = V1::ImageSizePresenter.new(image.create_size(params[:width], params[:height]), view_context)
+    def create_size(image, image_size)
+      @image_size = V1::ImageSizePresenter.new(image.create_size(image_size), view_context)
+    end
+
+    def image_size_params
+      { width: params[:width], height: params[:height] }
     end
 end

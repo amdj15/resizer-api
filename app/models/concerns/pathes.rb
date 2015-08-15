@@ -16,7 +16,7 @@ module Pathes
     new_path + "/" + File.basename(filename, ".*") + "_#{width}_x_#{height}" + File.extname(filename)
   end
 
-  def pivate_file_path(filename, with_file = false)
+  def private_file_path(filename, with_file = false)
     path = Rails.root.to_s + UPLOAD_PATH + '/' + path_for_file(filename)
 
     if with_file

@@ -5,12 +5,14 @@ class Image
   belongs_to :gadget
   many :image_sizes
 
-  def create_size(width, height)
-    image_size = ImageSize.new(width: width, height: height, image: self)
+  DEFAULT_LIMIT = 25
 
-    file = MiniMagick::Image.open(pivate_file_path(filename, true))
-    file.resize "#{width}x#{height}"
-    file.write public_file_path(width, height)
+  def create_size(image_size)
+    image_size.image = self
+
+    file = MiniMagick::Image.open(private_file_path(filename, true))
+    file.resize "#{image_size.width}x#{image_size.height}"
+    file.write public_file_path(image_size.width, image_size.height)
 
     self.image_sizes << image_size
 

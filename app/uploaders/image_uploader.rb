@@ -7,7 +7,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    pivate_file_path(filename)
+    private_file_path(filename)
   end
 
   def filename
