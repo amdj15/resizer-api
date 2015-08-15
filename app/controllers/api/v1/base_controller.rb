@@ -1,4 +1,4 @@
-class V1::BaseController < ApplicationController
+class Api::V1::BaseController < ApplicationController
   before_filter :check_access_token!
 
   protect_from_forgery with: :null_session

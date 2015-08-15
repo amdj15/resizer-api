@@ -1,6 +1,6 @@
-module V1::ApplicationHelper
+module Api::V1::ApplicationHelper
   def present(model)
-    klass = "V1::#{model.class}Presenter".constantize
+    klass = "Api::V1::#{model.class}Presenter".constantize
     presenter = klass.new(model, self)
 
     yield presenter if block_given?

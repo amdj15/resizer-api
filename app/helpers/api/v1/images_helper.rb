@@ -1,4 +1,4 @@
-module V1::ImagesHelper
+module Api::V1::ImagesHelper
   def base_url
     request.base_url
   end

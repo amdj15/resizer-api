@@ -1,4 +1,4 @@
-class V1::BasePresenter < SimpleDelegator
+class Api::V1::BasePresenter < SimpleDelegator
 
   def initialize(model, view)
     @model, @view = model, view

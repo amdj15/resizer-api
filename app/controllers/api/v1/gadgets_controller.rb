@@ -1,4 +1,4 @@
-class V1::GadgetsController < V1::BaseController
+class Api::V1::GadgetsController < Api::V1::BaseController
   skip_before_filter :check_access_token!, only: [:new]
 
   def new
