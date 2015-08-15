@@ -2,8 +2,6 @@ class Image
   include MongoMapper::Document
   include Pathes
 
-  # key :name, String
-
   belongs_to :gadget
   many :image_sizes
 

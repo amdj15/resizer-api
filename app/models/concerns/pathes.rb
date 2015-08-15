@@ -32,6 +32,6 @@ module Pathes
 
   private
     def path_for_file(filename)
-      filename[0..1] + "/" + filename[1..2]
+      filename[0..1] + "/" + filename[2..3]
     end
 end
