@@ -17,7 +17,7 @@ class Api::V1::ImagesController < Api::V1::BaseController
   end
 
   def resize
-    return api_error errors: {error: "Image doesnt exists or belong to another gadget"} unless image = Image.find_by_id_and_gadget_id(params[:id], @gadget.id)
+    return api_error errors: ApiError.new(t("errors.image_access")) unless image = Image.find_by_id_and_gadget_id(params[:id], @gadget.id)
 
     image_size = ImageSize.new(image_size_params)
 
