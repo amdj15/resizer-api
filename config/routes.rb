@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       resources :images, only: [:index, :create] do
         post "resize", on: :member
       end
+
+      get '*unmatched_route', to: 'base#not_found'
     end
   end
 end

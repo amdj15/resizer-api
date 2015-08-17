@@ -3,6 +3,8 @@ require 'fileutils'
 module Pathes
   extend ActiveSupport::Concern
 
+  attr_accessor :filename
+
   UPLOAD_PATH = "/private/files"
   IMAGE_SIZES_PATH = "/images";
 
@@ -16,10 +18,10 @@ module Pathes
     new_path + "/" + File.basename(filename, ".*") + "_#{width}_x_#{height}" + File.extname(filename)
   end
 
-  def private_file_path(filename, with_file = false)
+  def private_file_path(include_filename = false)
     path = Rails.root.to_s + UPLOAD_PATH + '/' + path_for_file(filename)
 
-    if with_file
+    if include_filename
       path + '/' + filename
     else
       path

@@ -22,7 +22,7 @@ class Image
 
   private
     def resize_file(image_size)
-      file = MiniMagick::Image.open(private_file_path(filename, true))
+      file = MiniMagick::Image.open(private_file_path(true))
       file.resize "#{image_size.width}x#{image_size.height}"
       file.write public_file_path(image_size.width, image_size.height)
     end

@@ -26,6 +26,10 @@ class Api::V1::BaseController < ApplicationController
     render json: errors.to_json, status: status
   end
 
+  def not_found
+    api_error status: 404, errors: ApiError.new(t("errors.not_found"))
+  end
+
   private
     def set_gadget(token)
       @gadget = Gadget.find_by_token(token)

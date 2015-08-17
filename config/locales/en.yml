@@ -24,3 +24,4 @@ en:
     unauthenticated: "unauthenticated gadget"
     unexpected: "unexpected error"
     image_access: "image doesnt exists or belong to another gadget"
+    not_found: "not found"
