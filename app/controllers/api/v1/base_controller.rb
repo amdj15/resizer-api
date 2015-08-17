@@ -11,7 +11,7 @@ class Api::V1::BaseController < ApplicationController
   def check_access_token!
     token, options = ActionController::HttpAuthentication::Token.token_and_options(request)
 
-    unless @gadget = Gadget.find_by_token(token)
+    unless set_gadget(token)
       api_error status: 401, errors: ApiError.new(t("errors.unauthenticated"))
     end
   end
@@ -25,4 +25,9 @@ class Api::V1::BaseController < ApplicationController
     errors = ApiError.new(t("errors.unexpected")) unless errors.class == ApiError
     render json: errors.to_json, status: status
   end
+
+  private
+    def set_gadget(token)
+      @gadget = Gadget.find_by_token(token)
+    end
 end
