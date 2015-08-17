@@ -1,7 +1,12 @@
 FactoryGirl.define do
   factory :image_size do
-    height 1
-width 1
-  end
+    width { Faker::Number.between(100, 150) }
+    height { Faker::Number.between(100, 150) }
 
+    image
+
+    factory :invalid_image_size do
+      height "text value"
+    end
+  end
 end
