@@ -8,9 +8,5 @@ RSpec.describe ImageSize, type: :model do
   it { expect(image_size).to validate_numericality_of :width }
   it { expect(image_size).to validate_numericality_of :height }
 
-  it { expect(image_size).to respond_to :image }
-
-  it "should return image when image called" do
-    expect(image_size.image.class).to be Image
-  end
+  it { expect(image_size).to respond_to :image; }
 end

@@ -12,11 +12,10 @@ class Image
   validates :filename, presence: true
 
   def create_size(image_size)
-    image_size.image = self
-
     resize_file(image_size)
     self.image_sizes << image_size
 
+    self.save
     image_size
   end
 

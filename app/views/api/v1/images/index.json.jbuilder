@@ -1,6 +1,6 @@
 json.images do
 	json.array! @images do |image|
-		json.image image
+		json.extract! image, :id, :filename
 
 		json.sizes do
 			json.array! image.image_sizes do |size|

@@ -1,10 +1,11 @@
 class ImageSize
-  include MongoMapper::Document
+  include MongoMapper::EmbeddedDocument
+  include ActiveModel::Validations
 
   key :height, Integer
   key :width, Integer
 
-  validates :height, :width, presence: true, numericality: { only_integer: true }
+  embedded_in :image
 
-  belongs_to :image
+  validates :height, :width, presence: true, numericality: { only_integer: true }
 end

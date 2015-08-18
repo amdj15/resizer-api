@@ -8,7 +8,7 @@ class Api::V1::ImagesController < Api::V1::BaseController
       uploader = ImageUploader.new
       uploader.store! params[:file]
 
-      create_size(Image.create!(filename: uploader.filename, gadget_id: @gadget.id), image_size)
+      create_size(Image.new(filename: uploader.filename, gadget_id: @gadget.id), image_size)
     end
   end
 
