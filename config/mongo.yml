@@ -18,6 +18,4 @@ test:
 
 # set these environment variables on your prod server
 production:
-  <<: *defaults
-  database: resizer
-  uri: <%= ENV['MONGOHQ_URL'] %>
+  uri: <%= ENV['MONGOLAB_URI'] %>
