@@ -17,7 +17,7 @@ class Api::V1::BaseController < ApplicationController
   end
 
   def api_error(status: 500, errors: [])
-    if !Rails.env.production? && errors.respond_to?(:backtrace) && !errors.backtrace.nil?
+    if errors.respond_to?(:backtrace) && !errors.backtrace.nil?
       puts errors.inspect
       puts errors.backtrace.select { |x| x.match(Regexp.new(Rails.root.to_s)) }
     end
