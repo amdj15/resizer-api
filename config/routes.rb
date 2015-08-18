@@ -10,4 +10,6 @@ Rails.application.routes.draw do
       get '*unmatched_route', to: 'base#not_found'
     end
   end
+
+  root "home#index"
 end

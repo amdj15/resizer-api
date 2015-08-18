@@ -1,7 +1,7 @@
 {
   "name": "Resizer",
-  "description": "apiDoc basic example",
-  "title": "Custom apiDoc browser title",
+  "description": "Resizer api documentetion",
+  "title": "Resizer api documentetion",
   "url" : "http://resizer-api.herokuapp.com",
   "template": {
   	"forceLanguage": "en",
