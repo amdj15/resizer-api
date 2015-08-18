@@ -53,6 +53,19 @@
   Content-Type: application/json
   Authorization: Token token="tOXYrlTa9jqf259ZjIIDLD8Ag1I5EwtEoacV6pwkkpUS+SIuDQOCff+YE4XB0Ha8p4VPUvuzb1RTWL2DbmXHEg=="
 
+  @apiErrorExample {json} Error response exemple:
+  {
+    "errors": {
+      "width": [
+        "can't be blank",
+        "is not a number"
+      ],
+      "height": [
+        "can't be blank",
+        "is not a number"
+      ]
+    }
+  }
 
   @apiParamExample {json} Request body example:
   {
@@ -85,6 +98,19 @@
   Content-Type: multipart/form-data; boundary=9351D444-773E-4221-A24F-15F8770A8D29
   Authorization: Token token="tOXYrlTa9jqf259ZjIIDLD8Ag1I5EwtEoacV6pwkkpUS+SIuDQOCff+YE4XB0Ha8p4VPUvuzb1RTWL2DbmXHEg=="
 
+  @apiErrorExample {json} Error response exemple:
+  {
+    "errors": {
+      "width": [
+        "can't be blank",
+        "is not a number"
+      ],
+      "height": [
+        "can't be blank",
+        "is not a number"
+      ]
+    }
+  }
 
   @apiSuccessExample {json} Respon:
   {
