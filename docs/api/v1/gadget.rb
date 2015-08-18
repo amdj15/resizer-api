@@ -4,7 +4,7 @@
 
   @apiDescription Register gadget and create authentication token
 
-  @apiSuccessExample {json} Respon
+  @apiSuccessExample {json} Response:
   {
     "gadget": {
       "id": "55d3434a1996da71c1000007",

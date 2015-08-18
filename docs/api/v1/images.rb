@@ -11,7 +11,7 @@
   @apiHeaderExample {string} Header example:
   Authorization: Token token="tOXYrlTa9jqf259ZjIIDLD8Ag1I5EwtEoacV6pwkkpUS+SIuDQOCff+YE4XB0Ha8p4VPUvuzb1RTWL2DbmXHEg=="
 
-  @apiSuccessExample {json} Respon
+  @apiSuccessExample {json} Response:
   {
     "images": [
       {
@@ -73,7 +73,7 @@
     "height": 100
   }
 
-  @apiSuccessExample {json} Respon
+  @apiSuccessExample {json} Response:
   {
     "width": 300,
     "link": "http://resizer-api.herokuapp.com/api/images/63/1e/631ee81d-99ee-46d2-ad74-bf30cb61d704_300_x_300.jpg",
@@ -112,7 +112,7 @@
     }
   }
 
-  @apiSuccessExample {json} Respon:
+  @apiSuccessExample {json} Response:
   {
     "width": 300,
     "link": "http://resizer-api.herokuapp.com/api/images/63/1e/631ee81d-99ee-46d2-ad74-bf30cb61d704_300_x_300.jpg",
