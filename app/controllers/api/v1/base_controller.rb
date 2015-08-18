@@ -1,8 +1,6 @@
 class Api::V1::BaseController < ApplicationController
   before_filter :check_access_token!
-
   protect_from_forgery with: :null_session
-  respond_to :json
 
   rescue_from Exception do |e|
     api_error status: 500, errors: e
